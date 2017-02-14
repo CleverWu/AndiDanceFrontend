@@ -1,0 +1,209 @@
+body,html{font-size:14px;color:#333;width: 100%;height:100%;min-width: 1170px;font-family: "Microsoft YaHei", "微软雅黑", "宋体","sans-serif";}
+body>header{width: 100%;background-color:#282828;height: 86px;position: relative;}
+.layout{margin: 0 auto;width: 1050px;position: relative}
+/*滚动条样式*/
+::-webkit-scrollbar{
+    width: 3px;
+    height: 10px;
+    background-color: #eeeeee;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+/*首页*/
+.container{
+    width: 100%;
+    height:100%;
+    background: #6456c1 url(../img/bg_index.png) repeat;
+    overflow:hidden;
+
+}
+.top{
+    width: 100%;
+    height:70px;
+    background-color: #4e4193;
+    overflow: hidden;
+}
+
+.top-logo{
+    width: 49px;
+    height: 49px;
+    background: url(../img/logo.png) no-repeat;
+    background-size: 100% 100%;
+    margin-top: 13px;
+    margin-left: 25px;
+}
+.top-logo p{
+    width: 300px;
+    margin-left: 69px;
+}
+.top-logo .cn{
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    padding-top: 3px;
+}
+.top-logo .en{
+    font-size:12px;
+    color:#fff;
+}
+.container header .top .info{
+    float: right;
+    margin-top: -44px;
+    margin-right: 20px;
+}
+
+.container header .top .info .info_txt{
+    color: #fff;
+    float: right;
+    margin-top: 2px;
+}
+.container header .top .info .loginout{
+    margin:0 8px;
+    float: right;
+}
+/*导航栏*/
+.navLeft{
+    border-right: 1px solid gray;
+    width:120px;
+    background: #fff;
+    font-size: 12px;
+    overflow: auto;
+    position: absolute;
+    left: 0px;
+    top: 70px;
+    bottom:0px
+}
+.navLeft ul{
+    /*border-right: 1px solid gray;*/
+    /*height: 100%;*/
+    border-bottom: 1px solid #cccccc;
+}
+.navLeft ul li{
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 120px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 35px;
+}
+.navLeft ul li:hover .navTitle{
+    background-color: #4e4193;
+    color: #ffffff;
+}
+.navTitle{
+    height: 35px;
+    border-bottom: 0;
+    border-top: 1px solid #cccccc;
+
+}
+.navContent{
+    font-size: 14px;
+}
+.navContent p:hover{
+    background-color: antiquewhite;
+}
+.content{
+    /*background-color: red;*/
+    font-size: 12px;
+    overflow: auto;
+    position: absolute;
+    left: 120px;
+    right: 0px;
+    top: 70px;
+    bottom: 0px;
+    min-width: 1050px;
+    /* width: 100%; */
+}
+/*主页*/
+.homeNav{
+    text-align: center;
+    margin: 0px auto;
+    border-bottom: 1px solid #cccccc;
+}
+.homeNav p{
+    text-align: center;
+    font-size: 24px;
+}
+.homeNav ul{
+    /*display: inline-block;*/
+}
+.homeNav ul li{
+    float: left;
+    margin: 20px 0px 20px 13%;
+    cursor: pointer;
+}
+.homeNav ul li a img{
+    width: 100px;
+}
+.homeNav ul li p{
+    font-size: 14px;
+    margin-top: 10px;
+    color: #000000;
+}
+.todaySituation{
+    float: left;
+    width: 400px;
+    height: 200px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+    /* background-color: darkcyan; */
+}
+.classSituation{
+    float: left;
+    width: 600px;
+    margin-left: 50px;
+    height: 200px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+/*    background-color: antiquewhite;*/
+}
+.todayClass{
+    width: 1050px;
+    height: 300px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+/*    background-color: chartreuse;*/
+    margin-top: 20px;
+}
+.todayTitle{
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    border-bottom: 1px solid #cccccc;
+    padding-left: 10px;
+}
+.todaySituationDetail ul{
+    padding: 5px 0px 0px 15px;
+    font-size: 16px;
+}
+.todaySituationDetail ul li{
+    margin-top: 15px;
+}
+.todaySituationDetail ul li span{
+    font-size: 26px;
+}
+.classTable{
+    width: 100%;
+}
+.classTable tbody tr th{
+    height: 30px;
+    font-size: 14px;
+}
+.classTable tbody tr{
+    height: 20px;
+}
+.classTable tbody tr td{
+    text-align: center;
+}
+.todayClassOverflow{
+    height: 270px;
+    overflow-y: auto;
+}
