@@ -10,10 +10,55 @@
     <script src="./js/jquery/dist/jquery.min.js"></script>
     <!--[if lt IE 9]><script src="./js/html5shiv/dist/html5shiv.min.js"></script><![endif]-->
     <script src="./js/angular/angular.js"></script>
+    <script src="./js/layer/layer.js"></script>
     <script src="./js/andi.js"></script>
 </head>
 <body ng-app="AnDi">
 <div class="container">
+    <div class="memberHandle">
+        <div class="memberHandleTitle">
+            会员操作
+        </div>
+        <div class="memberHandleContent">
+            <div class="clearfix">
+                <div class="memberHandleContent-photo fl">
+                    <img src="./img/new_photo11.jpg">
+                </div>
+                <div class="memberHandleContent-info fl">
+                    <table class="mt10 ml30">
+                        <tr><td>姓名：李大友</td><td>会员编号：9627</td></tr>
+                        <tr><td>会员类型：普通会员</td><td>卡号：15456455</td></tr>
+                        <tr><td>电话：13990419305</td><td>课程顾问：李大成</td></tr>
+                        <tr><td>当前余额：0元</td><td></td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="memberHandleContent-course clearfix">
+                <div class="memberHandleContent-package fl ml30">
+                    <span>套餐：</span>
+                    <select>
+                        <option>新春街舞大礼包</option>
+                        <option>元宵套餐</option>
+                    </select>
+                </div>
+                <div class="memberHandleContent-package ml30 fl">
+                    <span>课程：</span>
+                    <select>
+                        <option>美丽瘦身日记</option>
+                        <option>菲儿厉害</option>
+                    </select>
+                </div>
+            </div>
+            <ul>
+                <li>会员扣课</li>
+                <li>会员充值</li>
+                <li>会员签单</li>
+                <li>会员选课</li>
+                <li>信息修改</li>
+                <li>补卡</li>
+            </ul>
+        </div>
+    </div>
     <header>
         <div class="top">
             <div class="top-logo">
@@ -45,10 +90,10 @@
                 <li><img src="./img/custom.png"></li>
             </ul>
         </div>-->
-        <div class="homeNav">
+        <div class="homeNav" ng-controller="navHandle">
             <ul class="clearfix">
                 <li><a href="#"><img src="./img/custom_get.jpg"><p>添加会员</p></a></li>
-                <li><a href="#"><img src="./img/people.png"><p>操作会员</p></a></li>
+                <li ng-click="memberHander()"><a href="#"><img src="./img/people.png"><p>操作会员</p></a></li>
                 <li><a href="#"><img src="./img/add.png"><p>待审核储值</p></a></li>
                 <li><a href="#"><img src="./img/custom.png"><p>待审核开单</p></a></li>
             </ul>

@@ -1,3 +1,41 @@
+//layer调用标准
+var layerdiy=function(){
+    var tips_load=function(isOpen){
+        if(isOpen==1){
+            index1 = layer.load(2,{
+                shade: [0.6,'#000000'], //0.1透明度的白色背景
+                content:'<div class="loadText">请稍后</div>'
+            });
+        }else if(isOpen==0){
+            layer.close(index1);
+        }
+    };
+
+    //信息确认弹框
+    var tips_info=function(tips){
+
+        layer.alert(tips,{ skin:'layer-ext-flower'});
+    };
+    //信息提示，2秒消失
+    var tips_msg=function(tips,icon){
+        layer.msg(tips, {icon: icon})
+    };
+    /*有处理事件的弹框*/
+    var tips_handle=function(tips,handle){
+        layer.confirm(tips, {title:'系统提示', skin:'layer-ext-flower'}, function(index){
+            layer.close(index);
+            handle();
+        });
+    };
+
+    return {
+        tips_load:tips_load,
+        tips_info:tips_info,
+        tips_msg:tips_msg,
+        tips_handle:tips_handle
+    };
+}
+//以下为angular
 var app = angular.module('AnDi', []);
 app.controller('navList', function($scope) {
     $scope.navList=[
@@ -89,12 +127,32 @@ app.controller('navList', function($scope) {
     };
 });
 app.controller('homeController', function($scope,$http) {
-    $http.get('/andi/js/100.json')
+    $http.get('/AndiDanceFrontend/andi/js/100.json')
         .success(function(data) {
             $scope.classSituations = data;
         });
-    $http.get('/andi/js/200.json')
+    $http.get('/AndiDanceFrontend/andi/js/200.json')
         .success(function(data) {
             $scope.todayCourses = data;
         });
+});
+app.controller('navHandle', function($scope) {
+    $scope.memberHander=function(){
+        layer.open({
+            skin:'layer-ext-flower',
+            type: 1,
+            shade: 0.3,
+            shadeClose:true,
+            closeBtn: 0,
+            area: ['auto', 'auto'], //宽高
+            title: false, //不显示标题
+            content: $('.memberHandle'), //捕获的元素
+            cancel: function(index){
+                layer.close(index);
+                this.content.show();
+                $('.memberHandle').css("display","none");
+            }
+        });
+    }
+
 });

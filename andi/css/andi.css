@@ -207,3 +207,55 @@ body>header{width: 100%;background-color:#282828;height: 86px;position: relative
     height: 270px;
     overflow-y: auto;
 }
+/*会员操作弹框*/
+.memberHandle{
+    z-index: 10;
+    box-sizing: border-box;
+    display: none;
+  /*  position: absolute;*/
+    width: 500px;
+    height: 330px;
+/*    left: 50px;
+    top: 50px;*/
+}
+.memberHandleTitle{
+    background-color: #4e4193;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    padding-left: 20px;
+    color: #ffffff;
+}
+.memberHandleContent{
+    height:300px;
+    background-color: #ffffff;
+}
+.memberHandleContent-photo{
+    text-align: center;
+    width: 150px;
+    height:150px;
+}
+.memberHandleContent-photo img{
+    width: 120px;
+    height: 120px;
+    margin-top: 15px;
+    border-radius: 200px;
+}
+.memberHandleContent-info table tr td{height: 32px;width: 160px;}
+.memberHandleContent-package>select{width: 150px;height: 25px;border-radius: 10px;outline: none;}
+.memberHandleContent ul li{
+    text-align: center;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    margin-left: 15px;
+    background-color: #24C062;
+    margin-top: 15px;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.layui-layer-page .layui-layer-content{
+    overflow: visible!important;
+}
