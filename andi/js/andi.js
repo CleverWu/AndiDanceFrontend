@@ -50,93 +50,40 @@ app.controller('navList', function($scope) {
     $scope.isActive=function(index){
         $scope.navIndex=index;
     }
-    $scope.gridOptions1 = {
-        enableRowSelection: false,
-        enablePaginationControls: false,
-        useExternalPagination: false,//是否使用分页按钮
-        rowHeight: 20,
-        columnDefs: [
-            {
-                field: 'name',
-                displayName: '优惠券名称',
-                enableColumnMenu: false,// 是否显示列头部菜单按钮
-                enableCellEdit: false
-            },
-            {
-                field: 'number',
-                displayName: '编码',
-                width: '12%',
-                enableColumnMenu: false,// 是否显示列头部菜单按钮
-                enableCellEdit: false
-            },
-            {
-                field: 'exchangeValid',
-                displayName: '兑换有效期',
-                width: '15%',
-                cellTemplate:'<span>{{grid.appScope.getTimeStr(row.entity.exchangeStart)}}至{{grid.appScope.getTimeStr(row.entity.exchangeEnd)}}</span>',
-                enableColumnMenu: false,// 是否显示列头部菜单按钮
-                enableCellEdit: false
-            },
-            {
-                field: 'useValid',
-                displayName: '使用有效期',
-                width: '15%',
-                cellTemplate:'<span>{{grid.appScope.getTimeStr(row.entity.useStart)}}至{{grid.appScope.getTimeStr(row.entity.useEnd)}}</span>',
-                enableColumnMenu: false,// 是否显示列头部菜单按钮
-                enableCellEdit: false // 是否可编辑
-            },
-            {
-                field: 'money',
-                displayName: '金额',
-                cellTemplate:'<span>{{grid.appScope.getMoney(row.entity)}}</span>',
-                enableColumnMenu: false,// 是否显示列头部菜单按钮
-                enableCellEdit: false },
-            {
-                field: 'description',
-                displayName: '使用说明',
-                width:'15%',
-                enableColumnMenu: false,// 是否显示列头部菜单按钮
-                enableCellEdit: false
-            },
-            {
-                field: 'exchangeCount',
-                displayName: '可兑换次数',
-                enableColumnMenu: false,// 是否显示列头部菜单按钮
-                enableCellEdit: false
-            },
-            {
-                field: 'useCount',
-                displayName: '已兑换次数',
-                enableColumnMenu: false,// 是否显示列头部菜单按钮
-                enableCellEdit: false
-            },
-            {
-                field: 'handle',
-                displayName: '操作',
-                enableColumnMenu: false,// 是否显示列头部菜单按钮
-                cellTemplate:'<span class="chatHandle" ng-click="grid.appScope.editCoupon(row.entity)"><img class="iconHandle" src="/es/dist/img/icon_edit.png"></span>',
-                enableCellEdit: false
-            }
-
-        ],
-        enableHorizontalScrollbar :  0, //grid水平滚动条是否显示, 0-不显示  1-显示
-        enableVerticalScrollbar : 0, //grid垂直滚动条是否显示, 0-不显示  1-显示
-        onRegisterApi : function( gridApi ) {
-            $scope.gridApi1 = gridApi;
-        }
-    };
 });
+// 主页控制器
 app.controller('homeController', function($scope,$http) {
-    $http.get('/AndiDanceFrontend/andi/js/100.json')
+    $http.get('/dist/AndiDanceFrontend/andi/js/100.json')
         .success(function(data) {
             $scope.classSituations = data;
         });
-    $http.get('/AndiDanceFrontend/andi/js/200.json')
+    $http.get('/dist/AndiDanceFrontend/andi/js/200.json')
         .success(function(data) {
             $scope.todayCourses = data;
         });
 });
+// 操作处理弹框
 app.controller('navHandle', function($scope) {
+    $scope.memberHander=function(){
+        layer.open({
+            skin:'layer-ext-flower',
+            type: 1,
+            shade: 0.3,
+            shadeClose:true,
+            closeBtn: 0,
+            area: ['auto', 'auto'], //宽高
+            title: false, //不显示标题
+            content: $('.memberHandle'), //捕获的元素
+            cancel: function(index){
+                layer.close(index);
+                this.content.show();
+                $('.memberHandle').css("display","none");
+            }
+        });
+    }
+
+});
+app.controller('addMemberController', function($scope) {
     $scope.memberHander=function(){
         layer.open({
             skin:'layer-ext-flower',
