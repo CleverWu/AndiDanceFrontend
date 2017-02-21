@@ -1,4 +1,9 @@
-//layer调用标准
+//登录页
+$(function(){
+    $('.login-box').css('margin-top',($(window).height()-315)/2);
+    $('.loginContainer').css('height',($(window).height()));
+})
+/*//layer调用标准
 var layerdiy=function(){
     var tips_load=function(isOpen){
         if(isOpen==1){
@@ -20,7 +25,7 @@ var layerdiy=function(){
     var tips_msg=function(tips,icon){
         layer.msg(tips, {icon: icon})
     };
-    /*有处理事件的弹框*/
+    /!*有处理事件的弹框*!/
     var tips_handle=function(tips,handle){
         layer.confirm(tips, {title:'系统提示', skin:'layer-ext-flower'}, function(index){
             layer.close(index);
@@ -34,7 +39,7 @@ var layerdiy=function(){
         tips_msg:tips_msg,
         tips_handle:tips_handle
     };
-}
+}*/
 //以下为angular
 var app = angular.module('AnDi', []);
 app.controller('navList', function($scope) {
@@ -101,5 +106,36 @@ app.controller('addMemberController', function($scope) {
             }
         });
     }
+});
+app.controller('memberInfo', function($scope) {
+    $scope.chargeValue=function(){
+        layer.open({
 
+            type: 1,
+            shade: 0.3,
+            shadeClose:true,
+            closeBtn: 0,
+            area: ['auto', 'auto'], //宽高
+            title: false, //不显示标题
+            content: $('.chargeValue'), //捕获的元素
+            cancel: function(index){
+                layer.close(index);
+                this.content.show();
+                $('.chargeValue').css("display","none");
+            }
+        });
+    }
+});
+app.controller('commonController', function($scope,CommonUtils) {
+    $scope.refreshCarda=function(){
+        CommonUtils.tips_info("请刷新办会员卡...")
+    }
+    $scope.bindCarda=function(){
+        CommonUtils.tips_handle("绑定会员卡号",function(){})
+    }
+    $scope.bindCarda=function(){
+        CommonUtils.tips_handle("恭喜您,成功创建会员：李天际，卡号254545",function(){
+
+        })
+    }
 });

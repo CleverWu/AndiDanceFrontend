@@ -12,9 +12,10 @@
     <script src="./js/angular/angular.js"></script>
     <script src="./js/layer/layer.js"></script>
     <script src="./js/andi.js"></script>
+    <script src="./js/CommonService/CommonService.js"></script>
 </head>
 <body ng-app="AnDi">
-<div class="container">
+<div class="container" ng-controller="commonController">
     <header>
         <div class="top">
             <div class="top-logo">
@@ -27,6 +28,7 @@
             </div>
         </div>
     </header>
+
     <nav class="navLeft" ng-controller="navList">
         <ul>
             <li ng-repeat="nav in navList">
@@ -39,14 +41,15 @@
     </nav>
     <div class="content" ng-controller="addMemberController">
         <div class="commonBox">
-                <div class="commonBoxTitle clearfix">
-                    <p>添加会员</p>
-                    <button>返回</button>
-                    <button>提交</button>
-                </div>
-                <div class="commonBoxContent">
-                    <table class="addMemberTable">
-                        <tbody>
+            <div class="commonBoxTitle clearfix">
+                <p>添加会员</p>
+                <button>返回</button>
+                <button>提交</button>
+            </div>
+            <hr class="mt20">
+            <div class="commonBoxContent">
+                <table class="addMemberTable">
+                    <tbody>
                         <tr>
                             <td>姓名：</td><td><input></td>
                             <td>会员编号：</td><td><input></td>
@@ -72,9 +75,9 @@
                             <td></td><td></td>
                         </tr>
                         </tbody>
-                    </table>
-                </div>
+                </table>
             </div>
+        </div>
     </div>
 </div>
 
