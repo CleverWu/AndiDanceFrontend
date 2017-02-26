@@ -108,9 +108,9 @@ app.controller('addMemberController', function($scope) {
     }
 });
 app.controller('memberInfo', function($scope) {
+    $scope.switch=true;
     $scope.chargeValue=function(){
         layer.open({
-
             type: 1,
             shade: 0.3,
             shadeClose:true,

@@ -55,6 +55,17 @@
                     <td><input></td>
                 </tr>
             </table>
+            <div class="clearfix chargeValueBottom mt10">
+                <p class="fl chargeValuePeople">收款人:</p>
+                <select class="nameSelect fl">
+                    <option>李大牛</option>
+                    <option>条件2</option>
+                    <option>条件3</option>
+                    <option>条件4</option>
+                </select>
+                <p class="fl chargeValuePeople">收款单据号:</p>
+                <input class="commonInput">
+            </div>
 
 
         </div>
@@ -88,34 +99,35 @@
                 <p>会员信息</p>
                 <button>返回</button>
                 <button ng-click="chargeValue()">充值</button>
-                <button>编辑</button>
+                <button>保存</button>
+                <button ng-click="switch =!switch">编辑</button>
             </div>
             <hr class="mt20">
             <div class="commonBoxContent">
-                <table class="addMemberTable">
+                <table class="addMemberTable memberInfo">
                     <tbody>
                     <tr>
-                        <td>姓名：</td><td><input></td>
-                        <td>会员编号：</td><td><input></td>
+                        <td>姓名：</td><td><input ng-disabled="switch" value="李大牛"></td>
+                        <td>会员编号：</td><td><input ng-disabled="switch" value="123456"></td>
                     </tr>
                     <tr>
-                        <td>会员类型：</td><td><input></td>
-                        <td>开卡员：</td><td><input></td>
+                        <td>会员类型：</td><td><input ng-disabled="switch"></td>
+                        <td>开卡员：</td><td><input ng-disabled="switch"></td>
                     </tr>
                     <tr>
-                        <td>QQ：</td><td><input></td>
-                        <td>电话：</td><td><input></td>
+                        <td>QQ：</td><td><input ng-disabled="switch"></td>
+                        <td>电话：</td><td><input ng-disabled="switch"></td>
                     </tr>
                     <tr>
-                        <td>生日：</td><td><input></td>
-                        <td>年龄：</td><td><input></td>
+                        <td>生日：</td><td><input ng-disabled="switch"></td>
+                        <td>年龄：</td><td><input ng-disabled="switch"></td>
                     </tr>
                     <tr>
-                        <td>课程顾问：</td><td><input></td>
-                        <td>开户时间：</td><td><input></td>
+                        <td>课程顾问：</td><td><input ng-disabled="switch"></td>
+                        <td>开户时间：</td><td><input ng-disabled="switch"></td>
                     </tr>
                     <tr>
-                        <td class="vTop">备注：</td><td><textarea class="w300 h100"></textarea></td>
+                        <td class="vTop">备注：</td><td><textarea class="w300 h100" ng-disabled="switch"></textarea></td>
                         <td></td><td></td>
                     </tr>
                     </tbody>
