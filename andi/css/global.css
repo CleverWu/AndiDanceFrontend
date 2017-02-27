@@ -541,10 +541,21 @@ table { border-collapse: collapse; border-spacing: 0; }
 .b-f3f3f3{
   background-color: #f3f3f3;
 }
+.b-11cd6e{background-color: #11cd6e;}
 /*字体大小*/
 .f21{font-size: 21px;}
 .f22{font-size: 22px;}
 .f24{font-size: 24px;}
 .rel{
   position: relative;
+}
+.btn_common{
+  padding: 5px 20px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #eeeeee;
+  cursor: pointer;
+  outline: none;
+  background-color: #ffffff;
+
 }

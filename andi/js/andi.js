@@ -42,20 +42,6 @@ var layerdiy=function(){
 }*/
 //以下为angular
 var app = angular.module('AnDi', []);
-app.controller('navList', function($scope) {
-    $scope.navList=[
-        {id:0,title:'门店首页',content:[]},
-        {id:1,title:'门店会员',content:[]},
-        {id:2,title:'公司管理',content:['员工列表','权限设置','教师设置']},
-        {id:3,title:'套餐课程',content:['套餐设置','课程模板','课程设置','活动设置']},
-        {id:4,title:'财务系统',content:['会员财务','签单情况']},
-        {id:5,title:'报表管理',content:['会员情况','课程安排','上课统计']}
-    ]
-    $scope.navIndex=-1;
-    $scope.isActive=function(index){
-        $scope.navIndex=index;
-    }
-});
 // 主页控制器
 app.controller('homeController', function($scope,$http) {
     $http.get('/dist/AndiDanceFrontend/andi/js/100.json')
@@ -67,25 +53,11 @@ app.controller('homeController', function($scope,$http) {
             $scope.todayCourses = data;
         });
 });
+
 // 操作处理弹框
 app.controller('navHandle', function($scope) {
-    $scope.memberHander=function(){
-        layer.open({
-            skin:'layer-ext-flower',
-            type: 1,
-            shade: 0.3,
-            shadeClose:true,
-            closeBtn: 0,
-            area: ['auto', 'auto'], //宽高
-            title: false, //不显示标题
-            content: $('.memberHandle'), //捕获的元素
-            cancel: function(index){
-                layer.close(index);
-                this.content.show();
-                $('.memberHandle').css("display","none");
-            }
-        });
-    }
+
+
 
 });
 app.controller('addMemberController', function($scope) {
@@ -109,7 +81,50 @@ app.controller('addMemberController', function($scope) {
 });
 app.controller('memberInfo', function($scope) {
     $scope.switch=true;
+
+});
+app.controller('cMain', function($scope,CommonUtils) {
+    //左侧导航栏
+    $scope.navList=[
+        {id:0,title:'门店首页',content:[]},
+        {id:1,title:'门店会员',content:[]},
+        {id:2,title:'公司管理',content:['员工列表','权限设置','教师设置']},
+        {id:3,title:'套餐课程',content:['套餐设置','课程模板','课程设置','活动设置']},
+        {id:4,title:'财务系统',content:['会员财务','签单情况']},
+        {id:5,title:'报表管理',content:['会员情况','课程安排','上课统计']}
+    ]
+    $scope.navIndex=-1;
+    $scope.isActive=function(index){
+        $scope.navIndex=index;
+    }
+    //操作弹框
+    $scope.memberHander=function(){
+        layer.open({
+            type: 1,
+            shade: 0.3,
+            shadeClose:true,
+            closeBtn: 0,
+            area: ['auto', 'auto'], //宽高
+            title: false, //不显示标题
+            content: $('.mainMemberHandle'), //捕获的元素
+        });
+    }
+    //会员扣课
+    $scope.deductCourse=function(){
+        layer.closeAll();
+        layer.open({
+            type: 1,
+            shade: 0.3,
+            shadeClose:true,
+            closeBtn: 0,
+            area: ['auto', 'auto'], //宽高
+            title: false, //不显示标题
+            content: $('.deductCourse'), //捕获的元素
+        });
+    }
+    //充值
     $scope.chargeValue=function(){
+        layer.closeAll();
         layer.open({
             type: 1,
             shade: 0.3,
@@ -125,8 +140,6 @@ app.controller('memberInfo', function($scope) {
             }
         });
     }
-});
-app.controller('commonController', function($scope,CommonUtils) {
     $scope.refreshCarda=function(){
         CommonUtils.tips_info("请刷新办会员卡...")
     }

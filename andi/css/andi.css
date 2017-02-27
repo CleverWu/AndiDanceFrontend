@@ -228,7 +228,7 @@ body>header{width: 100%;background-color:#282828;height: 86px;position: relative
     color: #ffffff;
 }
 .memberHandleContent{
-    height:300px;
+    height:310px;
     background-color: #ffffff;
 }
 .memberHandleContent-photo{
@@ -244,7 +244,13 @@ body>header{width: 100%;background-color:#282828;height: 86px;position: relative
 }
 .memberHandleContent-info table tr td{height: 32px;width: 160px;}
 .memberHandleContent-package>select{width: 150px;height: 25px;border-radius: 10px;outline: none;}
-.memberHandleContent ul li{
+/*.memberHandleContent-package select option span{
+    display: none;
+}*/
+.vv{position: relative}
+.ss{display: none;position: absolute;}
+/*.memberHandleContent-package select option:hover span{display: block;}*/
+.memberHandleContent>ul>li{
     text-align: center;
     width: 140px;
     height: 40px;
@@ -398,7 +404,7 @@ textarea{
     color: #ffffff;
 }
 .chargeValueContent{
-    height:300px;
+    height:325px;
     background-color: #ffffff;
     padding-bottom: 20px;
 }
@@ -476,4 +482,174 @@ textarea{
     border-radius: 5px;
     width: 120px;
     margin-left: 5px;
+}
+/*模拟搜索*/
+/*搜索*/
+.searchbox{
+    width: 135px;
+    height: 28px;
+    border: 1px solid #efefef;
+    border-radius: 10px;
+    padding: 0 10px;
+    display: inline-block;
+
+}
+.searchbox .select{
+    height: 28px;
+    cursor: pointer;
+    position: relative;
+    z-index: 88;
+}
+.searchbox .select i{
+    background: url(../img/icon_jiantou.png) no-repeat 100% 50%;
+    display: inline-block;
+    width: 120px;
+    height: 28px;
+    padding-right: 15px;
+    font-style: normal;
+}
+.searchbox .select span{
+    display: block;
+    color: #333;
+    /*width: 45px;*/
+    height: 28px;
+    line-height: 28px;
+}
+.searchbox .select ul{
+    display: none;
+    height: 0;
+    position: absolute;
+    z-index: 9999;
+    border:1px solid #ddd;
+    background: #fff;
+}
+.searchbox .select ul li{
+    text-align: left;
+    padding: 2px 10px;
+    white-space: nowrap;
+}
+
+.searchbox .select i span div{
+    display: none;
+}
+.searchbox1 .select1 ul li div{
+    text-align: center;
+    position: absolute;
+    display: none;
+    top: -160px;
+    width: 480px;
+    left: -80px;
+    height: 120px;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.9);
+    border-radius: 5px;
+}
+.searchbox1 .select1 ul li div:after{
+    content: " ";
+    position: absolute;
+    bottom: -16px;
+    left: 100px;
+    background: url(../img/icon_j_r.png) center no-repeat;
+    display: block;
+    z-index: 10;
+    height: 25px;
+    width: 25px;
+}
+.searchbox2 .select2 ul li div{
+    text-align: center;
+    position: absolute;
+    display: none;
+    top: -160px;
+    width: 480px;
+    left: -310px;
+    height: 120px;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.9);
+    border-radius: 5px;
+}
+.searchbox2 .select2 ul li div:after{
+    content: " ";
+    position: absolute;
+    bottom: -16px;
+    right: 100px;
+    background: url(../img/icon_j_l.png) center no-repeat;
+    display: block;
+    z-index: 10;
+    height: 25px;
+    width: 25px;
+}
+.searchbox .select ul li div h2{
+    padding-left: 10px;
+    text-align: left;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    border-bottom: 1px solid #cccccc;
+}
+.searchbox .select ul li div table{
+    font-weight: 500;
+    width: 100%;
+    border-collapse:separate;
+    border-spacing:10px;
+}
+.searchbox .select ul li:hover div{
+    display: block;
+}
+.searchbox .select ul li.active{
+    background: #11cd6e;
+    color: #fff;
+}
+/*
+.searchbox .input{
+    float: left;
+    height: 28px;
+    margin-left: 5px;
+}
+.searchbox .input input{
+    height: 26px;
+    width: 120px;
+    padding: 0 5px;
+    border:0;
+}
+.searchbox .btn{
+    float: right;
+    height: 28px;
+
+}
+.searchbox .btn .searchBtn{
+    background: url(../img/icon_search.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: block;
+    margin-left: 5px;
+    margin-top: 5px;
+}*/
+.tcTable{
+    margin: 10px auto;
+    width: 90%;
+    border: 1px solid #cccccc;
+}
+.tcTable tr th{
+    text-align: center;
+    border: 1px solid #cccccc;
+    height:30px;
+}
+.tcTable tr td{
+    text-align: center;
+    border: 1px solid #cccccc;
+    height: 40px;
+}
+.tcTable tr td input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-sizing: border-box;
+    padding: 5px;
+    outline: none;
+    text-align: center;
+    font-size: 12px;
+}
+.deductCoursebtn button:hover{
+    background-color: #11cd6e;
+    color: #ffffff;
 }

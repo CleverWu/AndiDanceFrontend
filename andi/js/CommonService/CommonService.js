@@ -1,8 +1,4 @@
 app.service('CommonUtils',function ($http) {
-
-
-
-
     layer.config({
         extend:'skin/flower/style.css'
     });

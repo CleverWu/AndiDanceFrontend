@@ -13,9 +13,10 @@
     <script src="./js/layer/layer.js"></script>
     <script src="./js/andi.js"></script>
     <script src="./js/CommonService/CommonService.js"></script>
+
 </head>
 <body ng-app="AnDi">
-<div class="container" ng-controller="commonController">
+<div class="container" ng-controller="cMain">
     <div class="chargeValue">
         <div class="chargeValueTitle">
             充值
@@ -83,7 +84,7 @@
         </div>
     </header>
 
-    <nav class="navLeft" ng-controller="navList">
+    <nav class="navLeft">
         <ul>
             <li ng-repeat="nav in navList">
                 <div class="navTitle" ng-click="isActive($index)">{{nav.title}}</div>

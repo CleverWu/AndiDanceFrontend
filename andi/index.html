@@ -12,10 +12,13 @@
     <script src="./js/angular/angular.js"></script>
     <script src="./js/layer/layer.js"></script>
     <script src="./js/andi.js"></script>
+    <script src="./js/CommonService/CommonService.js"></script>
+
 </head>
 <body ng-app="AnDi">
-<div class="container">
-    <div class="memberHandle">
+<div class="container" ng-controller="cMain">
+    <!--会员操作弹窗-->
+    <div class="memberHandle mainMemberHandle">
         <div class="memberHandleTitle">
             会员操作
         </div>
@@ -36,27 +39,261 @@
             <div class="memberHandleContent-course clearfix">
                 <div class="memberHandleContent-package fl ml30">
                     <span>套餐：</span>
-                    <select>
-                        <option>新春街舞大礼包</option>
-                        <option>元宵套餐</option>
-                    </select>
+                    <div class="searchbox searchbox1">
+                        <div class="select select1">
+                            <i><span val='1'>3月500课时版</span></i>
+                            <ul class="list">
+                                <li val='1'>3月500课时版
+                                    <div class="asideBox">
+                                        <h2>套餐：3月500课时版</h2>
+                                        <table>
+                                            <tr><th>总课时</th><th>已用课时</th><th>剩余课时</th><th>开始时间</th><th>结束时间</th><th>剩余时间</th></tr>
+                                            <tr><td>500课时</td><td>300课时</td><td>200课时</td><td>2016-7-1</td><td>2016-10-1</td><td>45天</td></tr>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li val='2'>3月400课时版
+                                    <div class="asideBox">
+                                        <h2>套餐：3月400课时版</h2>
+                                        <table>
+                                            <tr><th>总课时</th><th>已用课时</th><th>剩余课时</th><th>开始时间</th><th>结束时间</th><th>剩余时间</th></tr>
+                                            <tr><td>400课时</td><td>300课时</td><td>100课时</td><td>2016-7-1</td><td>2016-10-1</td><td>45天</td></tr>
+                                        </table>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                   <!-- <select>
+                        <option class="vv">新春街舞大礼包<span class="ss">fewfewf</span></option>
+                        <option>元宵套餐<span>fewfewf</span></option>
+                    </select>-->
                 </div>
-                <div class="memberHandleContent-package ml30 fl">
+                <div class="memberHandleContent-package fl ml30">
                     <span>课程：</span>
-                    <select>
-                        <option>美丽瘦身日记</option>
-                        <option>菲儿厉害</option>
-                    </select>
+                    <div class="searchbox searchbox2">
+                        <div class="select select2">
+                            <i><span val='1'>街舞基础版</span></i>
+                            <ul class="list">
+                                <li val='1'>
+                                    街舞基础版
+                                    <div class="asideBox">
+                                        <h2>课程：街舞基础版</h2>
+                                        <table>
+                                            <tr><th>课时数</th><th>教师</th><th>舞种</th></tr>
+                                            <tr><td>2课时</td><td>李大牛</td><td>街舞</td></tr>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li val='2'>
+                                    街舞进阶
+                                    <div class="asideBox">
+                                        <h2>课程：街舞进阶</h2>
+                                        <table>
+                                            <tr><th>课时数</th><th>教师</th><th>舞种</th></tr>
+                                            <tr><td>3课时</td><td>张大牛</td><td>街舞</td></tr>
+                                        </table>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- <select>
+                         <option class="vv">新春街舞大礼包<span class="ss">fewfewf</span></option>
+                         <option>元宵套餐<span>fewfewf</span></option>
+                     </select>-->
                 </div>
             </div>
             <ul class="clearfix">
-                <li>会员扣课</li>
-                <li>会员充值</li>
+                <li ng-click="deductCourse()">会员扣课</li>
+                <li ng-click="chargeValue()">会员充值</li>
                 <li>会员签单</li>
                 <li>会员选课</li>
                 <li>信息修改</li>
                 <li>补卡</li>
             </ul>
+        </div>
+    </div>
+    <!--会员扣课弹窗-->
+    <div class="memberHandle deductCourse">
+        <div class="memberHandleTitle">
+            会员扣课
+        </div>
+        <div class="memberHandleContent">
+            <div class="clearfix">
+                <div class="memberHandleContent-photo fl">
+                    <img src="./img/new_photo11.jpg">
+                </div>
+                <div class="memberHandleContent-info fl">
+                    <table class="mt10 ml30">
+                        <tr><td>姓名：李大友</td><td>会员编号：9627</td></tr>
+                        <tr><td>会员类型：普通会员</td><td>卡号：15456455</td></tr>
+                        <tr><td>电话：13990419305</td><td>课程顾问：李大成</td></tr>
+                        <tr><td>当前余额：0元</td><td></td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="memberHandleContent-course clearfix">
+                <div class="memberHandleContent-package fl ml30">
+                    <span>套餐：</span>
+                    <div class="searchbox searchbox1">
+                        <div class="select select1">
+                            <i><span val='1'>3月500课时版</span></i>
+                            <ul class="list">
+                                <li val='1'>3月500课时版
+                                    <div class="asideBox">
+                                        <h2>套餐：3月500课时版</h2>
+                                        <table>
+                                            <tr><th>总课时</th><th>已用课时</th><th>剩余课时</th><th>开始时间</th><th>结束时间</th><th>剩余时间</th></tr>
+                                            <tr><td>500课时</td><td>300课时</td><td>200课时</td><td>2016-7-1</td><td>2016-10-1</td><td>45天</td></tr>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li val='2'>3月400课时版
+                                    <div class="asideBox">
+                                        <h2>套餐：3月400课时版</h2>
+                                        <table>
+                                            <tr><th>总课时</th><th>已用课时</th><th>剩余课时</th><th>开始时间</th><th>结束时间</th><th>剩余时间</th></tr>
+                                            <tr><td>400课时</td><td>300课时</td><td>100课时</td><td>2016-7-1</td><td>2016-10-1</td><td>45天</td></tr>
+                                        </table>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- <select>
+                         <option class="vv">新春街舞大礼包<span class="ss">fewfewf</span></option>
+                         <option>元宵套餐<span>fewfewf</span></option>
+                     </select>-->
+                </div>
+                <div class="memberHandleContent-package fl ml30">
+                    <span>课程：</span>
+                    <div class="searchbox searchbox2">
+                        <div class="select select2">
+                            <i><span val='1'>街舞基础版</span></i>
+                            <ul class="list">
+                                <li val='1'>
+                                    街舞基础版
+                                    <div class="asideBox">
+                                        <h2>课程：街舞基础版</h2>
+                                        <table>
+                                            <tr><th>课时数</th><th>教师</th><th>舞种</th></tr>
+                                            <tr><td>2课时</td><td>李大牛</td><td>街舞</td></tr>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li val='2'>
+                                    街舞进阶
+                                    <div class="asideBox">
+                                        <h2>课程：街舞进阶</h2>
+                                        <table>
+                                            <tr><th>课时数</th><th>教师</th><th>舞种</th></tr>
+                                            <tr><td>3课时</td><td>张大牛</td><td>街舞</td></tr>
+                                        </table>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- <select>
+                         <option class="vv">新春街舞大礼包<span class="ss">fewfewf</span></option>
+                         <option>元宵套餐<span>fewfewf</span></option>
+                     </select>-->
+                </div>
+            </div>
+            <!--打算扣课的显示-->
+            <table class="tcTable">
+                <tr>
+                    <th>现有课时</th>
+                    <th>扣除课时</th>
+                    <th>剩余课时</th>
+                    <th>上课时间</th>
+                    <th>教室</th>
+                    <th>老师</th>
+                </tr>
+                <tr>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                </tr>
+            </table>
+            <div class="deductCoursebtn textCenter deductBtnGroup1 mt10">
+                <button class="btn_common">确定</button>
+                <button class="btn_common ml70">取消</button>
+            </div>
+            <!--课程正在进行时显示-->
+           <!-- <div class="unEndClass textCenter mt20">
+                <p>课程未结束：街舞基础版</p>
+                <p class="mt10">上课时间：2016-2-12 9:32-10-32</p>
+            </div>-->
+
+           <!-- <div class="deductCoursebtn textCenter deductBtnGroup2 mt10">
+                <button class="btn_common">结束上课</button>
+                <button class="btn_common ml70">返还课时</button>
+                <button class="btn_common ml70">取消</button>
+            </div>-->
+        </div>
+    </div>
+    <!--会员充值-->
+    <div class="chargeValue">
+        <div class="chargeValueTitle">
+            充值
+        </div>
+        <div class="chargeValueContent">
+            <div class="clearfix">
+                <div class="chargeValueContent-photo fl">
+                    <img src="./img/new_photo11.jpg">
+                </div>
+                <div class="chargeValueContent-info fl">
+                    <table class="mt10 ml30">
+                        <tr><td>姓名：李大友</td><td>会员编号：9627</td></tr>
+                        <tr><td>会员类型：普通会员</td><td>卡号：15456455</td></tr>
+                        <tr><td>电话：13990419305</td><td>课程顾问：李大成</td></tr>
+                        <tr><td>当前余额：0元</td><td></td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="chargeValueBalance">
+                <p>当前余额：0元 充值后余额0元</p>
+            </div>
+            <table class="chargeValuetable">
+                <tr>
+                    <th>缴费方式</th>
+                    <th>刷卡</th>
+                    <th>支付工具</th>
+                    <th>现金</th>
+                    <th>其他</th>
+                    <th>合计</th>
+                </tr>
+                <tr>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                    <td><input></td>
+                </tr>
+            </table>
+            <div class="clearfix chargeValueBottom mt10">
+                <p class="fl chargeValuePeople">收款人:</p>
+                <select class="nameSelect fl">
+                    <option>李大牛</option>
+                    <option>条件2</option>
+                    <option>条件3</option>
+                    <option>条件4</option>
+                </select>
+                <p class="fl chargeValuePeople">收款单据号:</p>
+                <input class="commonInput">
+            </div>
+            <div class="textCenter mt10">
+                <button class="btn_common b-11cd6e">确定</button>
+                <button class="btn_common ml70">取消</button>
+            </div>
         </div>
     </div>
     <header>
@@ -71,7 +308,7 @@
             </div>
         </div>
     </header>
-    <nav class="navLeft" ng-controller="navList">
+    <nav class="navLeft">
         <ul>
             <li ng-repeat="nav in navList">
                 <div class="navTitle" ng-click="isActive($index)">{{nav.title}}</div>
@@ -151,6 +388,59 @@
         </div>
     </div>
 </div>
+<script>
+    // 模拟下拉搜索框
+    $('.searchbox1 .select1').on('click',function() {
+        // console.log(30*$(this).find('ul>li').length)
+        $(this).children('ul').show().animate({'height':23*$(this).find('ul>li').length},'fast');
+        $(this).on('mouseleave',function() {
+            $(this).children('ul').hide();
+        });
+    });
+    // 选项mouseover
+    $('.searchbox1 .select1 ul li').on('mouseover',function () {
+        $(this).addClass('active');
+    }).on('mouseout',function() {
+        $(this).removeClass('active');
+    });
 
+    // 选中事件
+    $('.searchbox1 .select1>ul>li').on('click',function () {
+        var val=$(this).html();
+        $('.searchbox1 .select1 span').html(val);
+        $('.searchbox1 .select1 span').find("div").remove();
+        var final=$('.searchbox1 .select1 span').text();
+        console.log(final)
+        $(this).parent().animate({height:0},'fast',function () {
+            $(this).hide();
+        });
+    });
+    // 模拟下拉搜索框
+    $('.searchbox2 .select2').on('click',function() {
+        // console.log(30*$(this).find('ul>li').length)
+        $(this).children('ul').show().animate({'height':23*$(this).find('ul>li').length},'fast');
+        $(this).on('mouseleave',function() {
+            $(this).children('ul').hide();
+        });
+    });
+    // 选项mouseover
+    $('.searchbox2 .select2 ul li').on('mouseover',function () {
+        $(this).addClass('active');
+    }).on('mouseout',function() {
+        $(this).removeClass('active');
+    });
+
+    // 选中事件
+    $('.searchbox2 .select2>ul>li').on('click',function () {
+        var val=$(this).html();
+        $('.searchbox2 .select2 span').html(val);
+        $('.searchbox2 .select2 span').find("div").remove();
+        var final=$('.searchbox2 .select2 span').text();
+        console.log(final)
+        $(this).parent().animate({height:0},'fast',function () {
+            $(this).hide();
+        });
+    });
+</script>
 </body>
 </html>

@@ -12,9 +12,11 @@
     <script src="./js/angular/angular.js"></script>
     <script src="./js/layer/layer.js"></script>
     <script src="./js/andi.js"></script>
+    <script src="./js/CommonService/CommonService.js"></script>
+
 </head>
 <body ng-app="AnDi">
-<div class="container">
+<div class="container" ng-controller="cMain">
     <header>
         <div class="top">
             <div class="top-logo">
@@ -27,7 +29,7 @@
             </div>
         </div>
     </header>
-    <nav class="navLeft" ng-controller="navList">
+    <nav class="navLeft">
         <ul>
             <li ng-repeat="nav in navList">
                 <div class="navTitle" ng-click="isActive($index)">{{nav.title}}</div>
