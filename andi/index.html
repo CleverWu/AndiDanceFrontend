@@ -109,7 +109,7 @@
                 <li ng-click="deductCourse()">会员扣课</li>
                 <li ng-click="chargeValue()">会员充值</li>
                 <li>会员签单</li>
-                <li>会员选课</li>
+                <li ng-click="chooseCourse()">会员选课</li>
                 <li>信息修改</li>
                 <li>补卡</li>
             </ul>
@@ -292,6 +292,168 @@
             </div>
             <div class="textCenter mt10">
                 <button class="btn_common b-11cd6e">确定</button>
+                <button class="btn_common ml70">取消</button>
+            </div>
+        </div>
+    </div>
+    <!--会员选课-->
+    <div class="selectCourse">
+        <div class="selectCourseTitle">
+            课程选择
+        </div>
+        <div class="selectCourseLeft">
+            <div class="selectCourseLeft-top">
+                <span ng-class="tab==1?'titleActive':''" ng-click="tab=1">周一</span>
+                <span ng-class="tab==2?'titleActive':''" ng-click="tab=2">周二</span>
+                <span ng-class="tab==3?'titleActive':''" ng-click="tab=3">周三</span>
+                <span ng-class="tab==4?'titleActive':''" ng-click="tab=4">周四</span>
+                <span ng-class="tab==5?'titleActive':''" ng-click="tab=5">周五</span>
+                <span ng-class="tab==6?'titleActive':''" ng-click="tab=6">周六</span>
+                <span ng-class="tab==7?'titleActive':''" ng-click="tab=7">周日</span>
+            </div>
+            <div class="selectCourseLeft-bottom">
+                <table>
+                    <tr>
+                        <th>选择</th>
+                        <th>课程名</th>
+                        <th>教师</th>
+                        <th>时间</th>
+                        <th>舞种</th>
+                        <th>支付课时</th>
+                        <th>班级类型</th>
+                        <th>课程类型</th>
+                    </tr>
+                    <tr ng-if="tab==1" ng-repeat="week1 in week1s">
+                        <td><input class="" type="checkbox" ng-model="week1.checked"></td>
+                        <td>{{week1.courseName}}</td>
+                        <td>{{week1.teacher}}</td>
+                        <td>{{week1.time}}</td>
+                        <td>{{week1.danceType}}</td>
+                        <td>{{week1.payCourseTime}}</td>
+                        <td>{{week1.classType}}</td>
+                        <td>{{week1.courseType}}</td>
+                    </tr>
+                    <tr ng-if="tab==2" ng-repeat="week2 in week2s">
+                        <td><input class="" type="checkbox" ng-model="week2.checked"></td>
+                        <td>{{week2.courseName}}</td>
+                        <td>{{week2.teacher}}</td>
+                        <td>{{week2.time}}</td>
+                        <td>{{week2.danceType}}</td>
+                        <td>{{week2.payCourseTime}}</td>
+                        <td>{{week2.classType}}</td>
+                        <td>{{week2.courseType}}</td>
+                    </tr>
+                    <tr ng-if="tab==3" ng-repeat="week3 in week3s">
+                        <td><input class="" type="checkbox" ng-model="week3.checked"></td>
+                        <td>{{week3.courseName}}</td>
+                        <td>{{week3.teacher}}</td>
+                        <td>{{week3.time}}</td>
+                        <td>{{week3.danceType}}</td>
+                        <td>{{week3.payCourseTime}}</td>
+                        <td>{{week3.classType}}</td>
+                        <td>{{week3.courseType}}</td>
+                    </tr>
+                    <tr ng-if="tab==4" ng-repeat="week4 in week4s">
+                        <td><input class="" type="checkbox" ng-model="week4.checked"></td>
+                        <td>{{week4.courseName}}</td>
+                        <td>{{week4.teacher}}</td>
+                        <td>{{week4.time}}</td>
+                        <td>{{week4.danceType}}</td>
+                        <td>{{week4.payCourseTime}}</td>
+                        <td>{{week4.classType}}</td>
+                        <td>{{week4.courseType}}</td>
+                    </tr>
+                    <tr ng-if="tab==5" ng-repeat="week5 in week5s">
+                        <td><input class="" type="checkbox" ng-model="week5.checked"></td>
+                        <td>{{week5.courseName}}</td>
+                        <td>{{week5.teacher}}</td>
+                        <td>{{week5.time}}</td>
+                        <td>{{week5.danceType}}</td>
+                        <td>{{week5.payCourseTime}}</td>
+                        <td>{{week5.classType}}</td>
+                        <td>{{week5.courseType}}</td>
+                    </tr>
+                    <tr ng-if="tab==6" ng-repeat="week6 in week6s">
+                        <td><input class="" type="checkbox" ng-model="week6.checked"></td>
+                        <td>{{week6.courseName}}</td>
+                        <td>{{week6.teacher}}</td>
+                        <td>{{week6.time}}</td>
+                        <td>{{week6.danceType}}</td>
+                        <td>{{week6.payCourseTime}}</td>
+                        <td>{{week6.classType}}</td>
+                        <td>{{week6.courseType}}</td>
+                    </tr>
+                    <tr ng-if="tab==7" ng-repeat="week7 in week7s">
+                        <td><input class="" type="checkbox" ng-model="week7.checked"></td>
+                        <td>{{week7.courseName}}</td>
+                        <td>{{week7.teacher}}</td>
+                        <td>{{week7.time}}</td>
+                        <td>{{week7.danceType}}</td>
+                        <td>{{week7.payCourseTime}}</td>
+                        <td>{{week7.classType}}</td>
+                        <td>{{week7.courseType}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="selectCourseRight">
+            <div class="selectCourseRight-top">
+                <span>已选课程</span>
+            </div>
+            <div class="selectCourseRight-bottom">
+                <table>
+                    <tr>
+                        <th>时间</th>
+                        <th>课程名</th>
+                        <th>教师</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr  ng-repeat="week1 in week1s | filter:{checked:true}">
+                        <td>{{week1.week}}{{week1.time}}</td>
+                        <td>{{week1.courseName}}</td>
+                        <td>{{week1.teacher}}</td>
+                        <td class="t-ff0000 currPoint" ng-click="week1.checked=false">删除</td>
+                    </tr>
+                    <tr  ng-repeat="week2 in week2s | filter:{checked:true}">
+                        <td>{{week2.week}}{{week2.time}}</td>
+                        <td>{{week2.courseName}}</td>
+                        <td>{{week2.teacher}}</td>
+                        <td class="t-ff0000 currPoint" ng-click="week2.checked=false">删除</td>
+                    </tr>
+                    <tr  ng-repeat="week3 in week3s | filter:{checked:true}">
+                        <td>{{week3.week}}{{week3.time}}</td>
+                        <td>{{week3.courseName}}</td>
+                        <td>{{week3.teacher}}</td>
+                        <td class="t-ff0000 currPoint" ng-click="week3.checked=false">删除</td>
+                    </tr>
+                    <tr  ng-repeat="week4 in week4s | filter:{checked:true}">
+                        <td>{{week4.week}}{{week4.time}}</td>
+                        <td>{{week4.courseName}}</td>
+                        <td>{{week4.teacher}}</td>
+                        <td class="t-ff0000 currPoint" ng-click="week4.checked=false">删除</td>
+                    </tr>
+                    <tr  ng-repeat="week5 in week5s | filter:{checked:true}">
+                        <td>{{week5.week}}{{week5.time}}</td>
+                        <td>{{week5.courseName}}</td>
+                        <td>{{week5.teacher}}</td>
+                        <td class="t-ff0000 currPoint" ng-click="week5.checked=false">删除</td>
+                    </tr>
+                    <tr  ng-repeat="week6 in week6s | filter:{checked:true}">
+                        <td>{{week6.week}}{{week6.time}}</td>
+                        <td>{{week6.courseName}}</td>
+                        <td>{{week6.teacher}}</td>
+                        <td class="t-ff0000 currPoint" ng-click="week6.checked=false">删除</td>
+                    </tr>
+                    <tr ng-repeat="week7 in week7s | filter:{checked:true}">
+                        <td>{{week7.week}}{{week7.time}}</td>
+                        <td>{{week7.courseName}}</td>
+                        <td>{{week7.teacher}}</td>
+                        <td class="t-ff0000 currPoint" ng-click="week7.checked=false">删除</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="textCenter mt10">
+                <button class="btn_common b-11cd6e t-ffffff">确定</button>
                 <button class="btn_common ml70">取消</button>
             </div>
         </div>

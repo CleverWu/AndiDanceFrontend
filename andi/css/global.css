@@ -537,11 +537,14 @@ table { border-collapse: collapse; border-spacing: 0; }
 .t-ff0000{
   color: #ff0000;
 }
+.t-11cd6e{
+  color: #11cd6e;
+}
 /*背景颜色*/
 .b-f3f3f3{
   background-color: #f3f3f3;
 }
-.b-11cd6e{background-color: #11cd6e;}
+.b-11cd6e{background-color: #11cd6e!important;}
 /*字体大小*/
 .f21{font-size: 21px;}
 .f22{font-size: 22px;}
@@ -557,5 +560,7 @@ table { border-collapse: collapse; border-spacing: 0; }
   cursor: pointer;
   outline: none;
   background-color: #ffffff;
-
+}
+.currPoint{
+  cursor: pointer;
 }

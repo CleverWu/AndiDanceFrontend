@@ -15,7 +15,7 @@
     <script src="./js/CommonService/CommonService.js"></script>
 </head>
 <body ng-app="AnDi">
-<div class="container">
+<div class="container" ng-controller="cMain">
     <header>
         <div class="top">
             <div class="top-logo">
@@ -28,7 +28,7 @@
             </div>
         </div>
     </header>
-    <nav class="navLeft" ng-controller="navList">
+    <nav class="navLeft">
         <ul>
             <li ng-repeat="nav in navList">
                 <div class="navTitle" ng-click="isActive($index)">{{nav.title}}</div>
@@ -50,7 +50,7 @@
             </div>
             <hr class="mt20">
             <div class="commonBoxContent">
-                <table class="todayCommonTable">
+                <table class="commonTable choosePackageTable">
                     <tr>
                         <th>套餐名</th>
                         <th>执行活动</th>
@@ -61,29 +61,38 @@
                         <th>操作</th>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>张舒</td>
-                        <td>22405</td>
-                        <td>18245789545</td>
-                        <td>笑傲街舞风暴团</td>
-                        <td>300元</td>
+                        <td rowspan="2">30天20次套餐</td>
+                        <td rowspan="2">七夕情人节</td>
+                        <td>标准</td>
+                        <td>450元</td>
+                        <td>30课时</td>
+                        <td>30天</td>
+                        <td class="packageBuy">选购</td>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>张舒</td>
-                        <td>22405</td>
-                        <td>18245789545</td>
-                        <td>笑傲街舞风暴团</td>
-                        <td>300元</td>
+                        <td>活动</td>
+                        <td>500元</td>
+                        <td>50课时</td>
+                        <td>45天</td>
+                        <td  class="packageBuy">选购</td>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>张舒</td>
-                        <td>22405</td>
-                        <td>18245789545</td>
-                        <td>笑傲街舞风暴团</td>
-                        <td>300元</td>
+                        <td rowspan="2">夏日套餐</td>
+                        <td rowspan="2">无</td>
+                        <td>标准</td>
+                        <td>450元</td>
+                        <td>30课时</td>
+                        <td>30天</td>
+                        <td class="packageBuy">选购</td>
                     </tr>
+                    <tr>
+                        <td>活动</td>
+                        <td>无</td>
+                        <td>无</td>
+                        <td>无</td>
+                        <td>无</td>
+                    </tr>
+
                 </table>
                 <div class="pagebox">
                     <a href="#" class="active">1</a>

@@ -84,6 +84,31 @@ app.controller('memberInfo', function($scope) {
 
 });
 app.controller('cMain', function($scope,CommonUtils) {
+    //选课
+    $scope.tab=1;
+    $scope.week1s=[
+        {week:"周一",checked:false,courseName:"街舞基础课",teacher:"李天牛",time:"9:00-10:00",danceType:"街舞",payCourseTime:"3课时",classType:"基础版",courseType:"基础版"}
+    ]
+    $scope.week2s=[
+        {week:"周二",checked:false,courseName:"街舞进阶1",teacher:"李天牛",time:"9:00-10:00",danceType:"街舞",payCourseTime:"3课时",classType:"进阶版",courseType:"进阶版"}
+    ]
+    $scope.week3s=[
+        {week:"周三",checked:false,courseName:"街舞进阶2",teacher:"李天牛",time:"9:00-10:00",danceType:"街舞",payCourseTime:"3课时",classType:"进阶版",courseType:"进阶版"}
+    ]
+    $scope.week4s=[
+        {week:"周四",checked:false,courseName:"街舞进3",teacher:"李天牛",time:"9:00-10:00",danceType:"街舞",payCourseTime:"3课时",classType:"进阶版",courseType:"进阶版"}
+    ]
+    $scope.week5s=[
+        {week:"周五",checked:false,courseName:"街舞进阶4",teacher:"李天牛",time:"9:00-10:00",danceType:"街舞",payCourseTime:"3课时",classType:"进阶版",courseType:"进阶版"}
+    ]
+    $scope.week6s=[
+        {week:"周六",checked:false,courseName:"街舞进阶5",teacher:"李天牛",time:"9:00-10:00",danceType:"街舞",payCourseTime:"3课时",classType:"进阶版",courseType:"进阶版"}
+    ]
+    $scope.week7s=[
+        {week:"周日",checked:false,courseName:"街舞进阶6",teacher:"李天牛",time:"9:00-10:00",danceType:"街舞",payCourseTime:"3课时",classType:"进阶版",courseType:"进阶版"}
+    ]
+
+
     //左侧导航栏
     $scope.navList=[
         {id:0,title:'门店首页',content:[]},
@@ -137,6 +162,24 @@ app.controller('cMain', function($scope,CommonUtils) {
                 layer.close(index);
                 this.content.show();
                 $('.chargeValue').css("display","none");
+            }
+        });
+    }
+    //会员选课弹框
+    $scope.chooseCourse=function(){
+        layer.closeAll();
+        layer.open({
+            type: 1,
+            shade: 0.3,
+            shadeClose:true,
+            closeBtn: 0,
+            area: ['auto', 'auto'], //宽高
+            title: false, //不显示标题
+            content: $('.selectCourse'), //捕获的元素
+            cancel: function(index){
+                layer.close(index);
+                this.content.show();
+                $('.selectCourse').css("display","none");
             }
         });
     }
